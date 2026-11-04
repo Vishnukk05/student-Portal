@@ -1,13 +1,13 @@
 {
-  "name": "student-portal",
+  "name": "student-portal-root",
   "version": "1.0.0",
   "private": true,
-  "description": "Student Management System - Django & React",
+  "description": "Student Management System root runner",
   "scripts": {
-    "start": "node start.js",
-    "backend": "python backend/manage.py runserver 8000",
-    "frontend": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend run build"
+    "start": "npm --prefix \"Normal standard student portal\" start",
+    "backend": "npm --prefix \"Normal standard student portal\" run backend",
+    "frontend": "npm --prefix \"Normal standard student portal\" run frontend",
+    "build": "npm --prefix \"Normal standard student portal\" run build"
   }
 }
 
