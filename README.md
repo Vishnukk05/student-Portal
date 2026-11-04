@@ -1,68 +1,120 @@
-# Student Management System - EduPortal
+<div align="center">
 
-> **Clean Architecture:**
-> - **Backend:** Django 5 + Django REST Framework (`backend/`)
-> - **Frontend:** React 18 + Vite SPA (`frontend/`)
-> - **Database:** SQLite (`backend/student_portal.sqlite3`)
-> - **Media & Uploads:** Dedicated storage (`uploads/`)
+# 🎓 EduPortal
+
+### A modern student management portal
+
+**One connected workspace for students, administrators, and academic resources.**
+
+[Getting Started](#-get-started) · [Project Structure](#-project-structure) · [Development](#-development)
+
+</div>
 
 ---
 
-## 🚀 Quick Start (Single Command)
+## ✨ About
 
-In the root directory, simply run:
+EduPortal is a full-stack student management system built with a React single-page application and a Django REST API. It brings the frontend and backend together in a straightforward local development setup.
+
+| Layer | Technology |
+| --- | --- |
+| Frontend | React 18, Vite |
+| Backend | Django 5, Django REST Framework |
+| Database | SQLite |
+| Upload storage | `uploads/` |
+
+## 🚀 Get started
+
+### Prerequisites
+
+Install **Node.js and npm**, plus **Python** with `pip`. Use versions supported by the dependencies in the project.
+
+### Run both services
+
+From the repository root:
 
 ```bash
+npm install
 npm start
 ```
 
-This single command automatically starts **both**:
-1. **Django REST Backend** at `http://127.0.0.1:8000/api/`
-2. **React Frontend** at `http://localhost:5173/`
+The development servers will be available at:
 
-*(Press `Ctrl + C` in the terminal to stop both servers simultaneously).*
+- **Web app:** [http://localhost:5173/](http://localhost:5173/)
+- **API:** [http://127.0.0.1:8000/api/](http://127.0.0.1:8000/api/)
 
----
+Stop both services with `Ctrl+C` in the terminal.
 
-## 🛠️ Running Individually (Alternative)
+> **First run:** If startup reports missing Python packages, install the backend dependencies from `backend/requirements.txt`. If the frontend dependencies are missing, run `npm install` in the appropriate directory.
 
-If you prefer to run each service in separate terminals:
+## 🧑‍💻 Development
 
-### 1. Backend (Django)
-```powershell
+You can also run the backend and frontend separately in two terminals.
+
+### Backend
+
+```bash
 cd backend
-$env:DJANGO_SECRET_KEY="replace-with-a-long-random-production-secret"
+python -m pip install -r requirements.txt
+python manage.py migrate
 python manage.py runserver 8000
 ```
 
-### 2. Frontend (React)
+For local development, set a Django secret key in your environment before starting the backend. Do not commit production secrets.
+
+**PowerShell:**
+
 ```powershell
+$env:DJANGO_SECRET_KEY = "your-local-development-secret"
+python manage.py runserver 8000
+```
+
+**macOS / Linux:**
+
+```bash
+export DJANGO_SECRET_KEY="your-local-development-secret"
+python manage.py runserver 8000
+```
+
+### Frontend
+
+In another terminal:
+
+```bash
 cd frontend
+npm install
 npm run dev
 ```
----
 
-## 📂 Project Structure
+## 📁 Project structure
 
 ```text
-├── backend/            # Django 5 + DRF Backend
-│   ├── config/         # Django settings, WSGI, URLs, CORS config
-│   ├── portal/         # Views, serializers, models, authentication, URLs
-│   ├── manage.py       # Django management script
-│   ├── requirements.txt# Python dependencies
-│   └── student_portal.sqlite3 # Active SQLite database
-├── frontend/           # React 18 + Vite SPA Frontend
+├── backend/                  # Django REST API
+│   ├── config/               # Settings, URLs, WSGI, and CORS configuration
+│   ├── portal/               # Portal app: views, serializers, models, and URLs
+│   ├── manage.py             # Django management commands
+│   └── requirements.txt      # Python dependencies
+├── frontend/                 # React + Vite web application
 │   ├── src/
-│   │   ├── components/ # Admin & Student modular views, Modals, Sidebar, Toasts
-│   │   ├── api.js      # Universal authenticated API client
-│   │   ├── styles.css  # Modern responsive design system
-│   │   ├── App.jsx     # Master application shell
-│   │   └── main.jsx    # React bootstrap
-│   ├── package.json
-│   └── vite.config.js
-├── database/           # Database schemas and reference database
-├── uploads/            # Academic files, profile photos, and ticket attachments
-├── start.js            # Dual-server concurrent runner
-├── package.json        # Root npm configuration (powers npm start)
-└── README.md           # Documentation & instructions
+│   │   ├── components/       # Admin and student UI components
+│   │   ├── api.js            # API client
+│   │   ├── styles.css        # Application styles
+│   │   ├── App.jsx           # Application shell
+│   │   └── main.jsx          # Frontend entry point
+│   └── package.json
+├── database/                 # Database schemas and reference data
+├── uploads/                  # Uploaded files and media
+├── start.js                  # Starts both development servers
+├── package.json              # Root npm scripts and dependencies
+└── README.md
 ```
+
+## 🔐 Security notes
+
+- Use a unique, private `DJANGO_SECRET_KEY`; never commit real secrets.
+- The Django development server is for local development, not production deployment.
+- Review Django's deployment checklist and configure production settings, allowed hosts, HTTPS, and database/media storage before deploying.
+
+## 📄 License
+
+No license is specified in this repository. Contact the repository owner before redistributing or reusing the project.
