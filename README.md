@@ -40,19 +40,6 @@ python manage.py runserver 8000
 cd frontend
 npm run dev
 ```
-
----
-
-## 🔐 Default Credentials
-
-| Role | Username / Identifier | Password |
-| :--- | :--- | :--- |
-| **Admin** | `rony@eduportal.edu` | `admin123` |
-| **Student** | `STU001` (Rahul Kumar) | `student123` |
-| **Student** | `STU002` (Priya Sharma) | `student123` |
-| **Student** | `STU003` (Amit Patel) | `student123` |
-| **Student** | `STUD2026001` (Vishnu) | `student123` |
-
 ---
 
 ## 📂 Project Structure
