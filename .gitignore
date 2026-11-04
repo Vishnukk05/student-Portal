@@ -1,0 +1,38 @@
+# Secrets & Environment
+.env
+**/.env
+*.env
+!.env.example
+!**/.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Python cache & databases
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+venv/
+.venv/
+env/
+
+# Build artifacts & distribution
+dist/
+**/dist/
+build/
+.vite/
+.parcel-cache/
+
+# Uploads & Media
+uploads/*
+!uploads/.gitkeep
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Logs & OS artifacts
+*.log
+.DS_Store
+Thumbs.db
